@@ -5,7 +5,14 @@ const dbConfig = require("./db");
 const roomsRoute = require("./routes/roomRoute");
 const usersRoute = require("./routes/userRoute");
 const bookingRoute = require("./routes/bookingRoute");
+const cors = require('cors')
 
+
+app.use(cors(
+    {
+        origin: '*.vercel.app'
+    }
+))
 app.use(express.json());
 app.use("/api/rooms", roomsRoute);
 app.use("/api/users", usersRoute);
